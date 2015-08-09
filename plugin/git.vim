@@ -18,4 +18,18 @@ function! s:Git_Blame()
     echo gitoutput
 endfunction
 
+function! s:Git_Status()
+    let Git_Cmd='git status'
+    let gitoutput = system(Git_Cmd)
+    echo gitoutput
+endfunction
+
+function! s:Git_Log()
+    let Git_Cmd='git log --graph'
+    let gitoutput = system(Git_Cmd)
+    echo gitoutput
+endfunction
+
 command! -nargs=0 -bar Blame call s:Git_Blame()
+command! -nargs=0 -bar Status call s:Git_Status()
+command! -nargs=0 -bar Log call s:Git_Log()
